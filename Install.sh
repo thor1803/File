@@ -28,3 +28,4 @@ public function boot()
 "
 
 grant all privileges on *.* to 'phpmyadmin'@'localhost';
+php artisan migrate:fresh 
