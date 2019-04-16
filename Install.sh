@@ -36,3 +36,12 @@ sudo a2dismod mpm_worker
 sudo a2dismod mpm_event
 
 sudo  systemctl restart apache2
+
+<Directory /var/www/>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+    
+    sudo service apache2 restart
+</Directory> 
