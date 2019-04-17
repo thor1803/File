@@ -42,6 +42,15 @@ sudo  systemctl restart apache2
     AllowOverride All
     Order allow,deny
     allow from all
-    
-    sudo service apache2 restart
 </Directory> 
+
+sudo service apache2 restart
+
+mysqldump -e -c homestead2 > "homestead.sql"
+mysql -e "create database homestead3"
+mysql homestead3 < "homestead.sql"
+
+# Privilèges pour `homestead`@`localhost`
+
+GRANT USAGE ON *.* TO 'homestead'@'localhost' IDENTIFIED BY PASSWORD '*14E65567ABDB5135D0CFD9A70B3032C179A49EE7';
+GRANT ALL PRIVILEGES ON `homestead2`.* TO 'homestead'@'localhost';
